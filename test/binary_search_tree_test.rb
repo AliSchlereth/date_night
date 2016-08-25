@@ -158,6 +158,16 @@ class BinarySearchTreeTest <Minitest::Test
     assert_equal 6, tree.load('movies.txt')
   end
 
+  def test_load_does_not_insert_movie_that_is_a_repeat
+    tree = BinarySearchTree.new
+    tree.insert(61, "Bill & Ted's Excellent Adventure")
+    tree.insert(16, "Johnny English")
+    tree.insert(92, "Sharknado 3")
+    tree.insert(50, "Hannibal Buress: Animal Furnace")
+
+    assert_equal 6, tree.load('movies2.txt')
+  end
+
   def test_health_returns_array_of_score_number_of_children_and_percentage
     tree = BinarySearchTree.new
     tree.insert(61, "Bill & Ted's Excellent Adventure")

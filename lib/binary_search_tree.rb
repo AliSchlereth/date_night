@@ -82,8 +82,10 @@ class BinarySearchTree
     movie_count = 0
     IO.foreach(input_file) do |movie|
       movie = movie.chop.split(",")
-      insert(movie[0].to_i, movie[-1])
-      movie_count +=1
+      if !include?(movie[0].to_i)
+        insert(movie[0].to_i, movie[-1])
+        movie_count +=1
+      end
     end
     movie_count
   end
